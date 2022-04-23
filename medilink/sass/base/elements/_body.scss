@@ -1,0 +1,800 @@
+body {
+	background: $color__background-body; // Fallback for when there is no custom background color defined.
+}
+
+
+// Default value
+
+h1{
+	text-align: center;
+	color: $color__principal_green;
+	font-size: 24px;
+	padding-top: 20px;
+}
+
+h2{
+	text-align: center;
+	color: $color__principal_green;
+	font-size: 16px;
+	padding-top: 20px;
+}
+
+section{
+	padding: 30px;
+}
+
+// Css for first section
+
+.first_article_container{
+	background-color: $color__verylight_green;
+	padding-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+	padding-top: 75px;
+
+
+
+	@include xxl{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 0px;
+		grid-row-gap: 0px;
+		padding-bottom: 5px;
+		padding-top: 95px;
+			
+	}
+	
+	.imgContainer{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+
+	p{
+		text-align: center;
+		color: $color__almost_black;
+
+		@include xxl{
+			position: relative;
+			top: -120px;
+		}
+
+
+		span{
+			color: $color__principal_green;
+		}
+	}
+
+	button{
+		padding: 15px;
+		border-radius: 8px;
+		position: absolute;
+		bottom: -4%;
+		border: none;
+		background-color: $color__light_orange;
+		color: $color__almost_white;
+
+		@include xxl{
+			display: none;
+		}
+
+	}
+}
+
+// Css for second section
+
+.second_article_container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	p{
+		text-align: center;
+	}
+
+
+	.container{
+		display: none;
+
+		@include xl{
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 16px;
+			background-color: $color__principal_green;
+			max-width: 80%;
+			padding: 32px;
+			border-radius: 10px;
+			-webkit-box-shadow: 4px 4px 6px 0px rgba(196,196,196,0.5); 
+			box-shadow: 4px 4px 6px 0px rgba(196,196,196,0.5);
+
+			img{
+				max-width: 30%;
+				margin-top: 20px;
+				background-color: $color__almost_white;
+				border-radius: 10px;
+			}
+
+			.bar{
+				display: none;
+				
+				@include xxl{
+					display: block;
+					border-right: 2px solid white;
+					width: 1px;
+					height: 180px;
+					background-color: white;
+					transform: translateX(2px);
+				}
+			}
+
+			.containerContent{
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				flex-direction: column;
+				max-width: 25%;
+
+				h2{
+					color: $color__almost_white;
+				}
+
+				p{
+					color: $color__almost_white;
+				}
+			}
+
+		}
+	}
+
+	.slider {
+		padding-top: 50px;
+		/* line them up horizontally */
+		display: flex;
+	  
+		/* allow for scrolling */
+		overflow-x: auto;
+	  
+		/* make it smooth on iOS */
+		-webkit-overflow-scrolling: touch;
+		width: 100%;
+		position: relative;
+
+		div {
+			/* make sure the width is honored */
+			flex-shrink: 0;
+			width: 246px;
+			height: 263px;
+		  }
+
+		  @include xl{
+			display: none;
+		}
+
+	  }
+
+
+	  .slide{
+		  margin-right: 50px;
+		  margin-bottom: 10px;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  flex-direction: column;
+		  border-radius: 13px;
+		  box-shadow:  4px 4px 6px rgba(96, 181, 165, 0.14), inset 4px 4px 6px 1px rgba(196, 196, 196, 0.09);
+		  overflow-y: visible;
+
+		  p{
+			font-size: 14px;
+			color: $color__principal_green;
+			text-align: left;
+		  }
+
+		  img{
+			width: 83px;
+			height: 83px;
+			position: absolute;
+			top: 3%;
+			background-color: $color__verylight_green;
+			padding: 5px;
+			border-radius: 6px;
+		}
+	}
+
+	.slide:last-child{
+		margin-right: 10px !important;
+		
+	}
+}
+
+// Css for third section
+
+
+.third_article_container{
+	background-color: $color__verylight_green;
+
+	@include xs{
+		background-color: $color__almost_white;
+	}
+
+	section{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		
+		padding: 0px;
+	}
+
+// refaire l'anim avec le text en noir qui a la meme position que le text vert, lors de l'anim il prend une opacité de 1 et une position plus basse comme ça plus de overflow et un parent en height fit-content
+	.infoContainer{
+		background-color: #60b5a53f;
+		border-radius: 7px;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		padding-left: 25px;
+		width: 85%;
+		margin-bottom: 20px;
+		
+		h2{
+			text-align: left;
+		}
+		.descContainer{
+			height: 0px;
+			overflow: hidden;
+			transition: all 1s;
+			
+		}
+		
+	}
+
+	.active{
+		.descContainer{
+			height: fit-content;
+			overflow: hidden;
+			transition: all 1s;
+		}
+	}
+
+}
+
+// Css for fourth section
+
+
+.fourth_article_container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	.ownerPres{
+		position: relative;
+		background-color: $color__verylight_green;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		flex-direction: column;
+		width: 100%;
+		padding: 10px;
+		margin-bottom: 50px;
+		margin-top: 50px;
+		box-shadow: 0px 4px 4px rgba(196, 196, 196, 0.31), inset 0px 4px 6px rgba(196, 196, 196, 0.31);
+		
+		@include xs{
+			max-width: 60%;
+			align-items: center;
+		}
+		
+
+
+		h1{
+			padding-top: 0px !important;
+			font-size: 18px;
+		}
+
+		p{
+			margin:  0px !important;
+			padding:  0px !important;
+			font-size: 16px;
+
+			
+		@include xs{
+			text-align: center;
+		}
+		}
+
+		img{
+			position: absolute;
+			left: 3%;
+			top: -35px;
+			border-radius: 10px;
+			max-width: 100px;
+
+			@include xs{
+				left: -27%;
+			}
+
+			@media screen and (min-width: 600px){
+				left: -2%;
+			}
+		
+		}
+	}
+
+	.wpforms-container{
+		@include xs{
+			width: 335px;
+		}
+	}
+
+	input[type=text],input[type=email], textarea{
+		margin-bottom: 10px;
+		padding: 10px ;
+		border: none;
+		box-shadow: inset 0px 4px 4px rgba(196, 196, 196, 0.31);
+		border-radius: 6px;
+
+		@include xs{
+			width: 335px;
+		}
+	}
+
+	button{
+		width: 100%;
+		background: $color__light_orange;
+		border-radius: 8px;
+		border: none;
+		color: white;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+
+		@include xs{
+			width: 30%;
+		}
+	}
+
+	textarea {
+		resize: none;
+
+		@include xs{
+			width: 335px;
+		}
+
+	  }
+
+	.wpforms-field{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.wpforms-label-hide{
+		display: none;
+	}
+
+	.wpforms-submit-container{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+// Css for fith section
+
+.fith_article_container{
+	margin-top: 300px;
+	position: relative;
+	background-color: $color__verylight_green;
+	height: 300px;
+
+	@include xs{
+		display: flex;
+    	justify-content: center;
+    	align-items: flex-start;
+	}
+
+	.mapContainer{
+		position: relative;
+		background-color: $color__principal_green;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		transform: translateY(-262px);
+
+		@include xs{
+			max-width: 60%;
+		}
+
+		.bar{
+			border-bottom: 2px solid rgb(255, 255, 255);
+			width: 65%;
+			margin-top: 10px;
+			margin-bottom: 10px;
+
+		}
+
+		img{
+			width: 90%;
+			padding: 30px;
+
+			@include xs{
+				max-width: 70%;
+			}
+		}
+
+		.implementationPart1{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+
+			.internContainer{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: row;
+				text-align: center;
+				color: $color__almost_white;
+
+			}
+
+			div{
+				padding: 10px;
+				padding-top: 0px;
+				padding-bottom: 0px;
+				text-align: center;
+				color: $color__almost_white;
+			}
+v
+			p{
+				color: $color__almost_white;
+				text-align: center;
+			}
+		}
+
+	}
+}
+
+// Css for six section
+
+
+.six_article_container{
+	overflow-x: hidden;
+	
+
+	
+.img_container{
+	
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+	gap: 200px;
+	animation: move_left 40s linear infinite alternate-reverse;
+
+	img{
+		
+		width: 70%;
+
+		@include xl{
+			max-width: 30%;
+		}
+		
+	}
+}
+}
+
+
+@keyframes move_left {
+	0%{transform: translateX(0);}
+	50%{transform: translateX(-1800%);}
+	100%{transform: translateX(0%);}
+}
+
+
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 9;
+    
+    @include xl {
+        background-color: $color__verylight_green;
+        justify-content: flex-start;
+    }
+
+    nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    align-items: center;
+    
+    @include xl{
+        width: fit-content;
+    }
+
+    a{
+        img{
+            padding: 16px;
+        }
+    }
+
+        .burger_menu{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        height: 40px;
+        width: 48px;
+        transition: 0.5s;
+        margin-top: 12px;
+        cursor: pointer;
+
+        @include xl{
+            display: none;
+        }
+
+        .burger{
+            height: 4px;
+            width: 80%;
+            background-color: $color__principal_green;
+            border-radius: 4px;
+            transform: translate(0)  rotate(0) scale(1);
+            transition: 0.5s;
+        }
+        .burger1{
+            width: 40%;
+        }
+        .burger3{
+            width: 60%;
+        }
+            
+            
+        }
+    }
+    
+    
+    
+}
+.burger_texts{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        gap: 32px;
+        padding: 16px 0;
+        text-align: center;
+        transform: translate(-50%, -150%);
+        transition: 0.5s;
+        background-color: $color__principal_green;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        width: 100%;
+        z-index: 99;
+        margin: 0;
+
+        @include xl {
+            flex-direction: row;
+            background-color: transparent;
+            left: 30%;
+            transform: translate(0, 30%);
+        }
+        @include xxl{
+            left: 40%;
+        }
+        @include xxxl{
+            left: 50%;
+        }
+    }
+    .burger_texts li{
+        position: relative;
+        padding: 16px;
+        transform: translateX(-15%);
+        
+        a{
+            color: $color__almost_white;
+
+            @include xl{
+                color: $color__principal_green;
+            }
+        }
+
+        @include xl{
+            color: $color__principal_green;
+        }
+    }
+    .burger_texts li::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $color__almost_white;
+
+        @include xl {
+            content: "";
+            width: 0;
+            height: 0;
+        }
+    }
+    .burger_texts li:last-child::after{
+        content: "";
+        width: 0;
+        height: 0;
+    }
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END HEADER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.site-footer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background-color: $color__verylight_green;
+	-webkit-box-shadow: inset 0px 4px 6px 0px rgba(196,196,196,0.31); 
+	box-shadow: inset 0px 4px 6px 0px rgba(196,196,196,0.31);
+    padding: 32px;
+
+    .section_footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 80%;
+
+        @include xl {
+            width: 100%;
+            flex-direction: row;
+        }
+
+        .div_no_mobile{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 32px;
+
+            .footer_logo {
+            height: 110px;
+            width: 383px;
+            max-width: 383px;
+        }
+        }
+        
+        .div_footer_right{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 48px;
+
+            @include xl {
+            justify-content: space-around;
+            }
+        }
+
+		.socials_link{
+			text-decoration: none;
+			background-color: $color__orange;
+			color: $color__almost_white;
+			padding: 8px 64px;
+			border-radius: 8px;
+			margin: auto;
+			transform: translateY(-125%);
+
+            @include xl{
+                display: none;
+            }
+		}
+
+        .footer_member{
+
+            @include xl{
+                display: flex;
+                flex-direction: row;
+                gap: 32px;
+            }
+            
+            .footer_title{
+                width: 200px;
+            }
+        }
+
+        .footer_logo{
+            display: none;
+            max-width: 400px;
+
+            @include xl {
+                display: block;
+                
+            }
+                img{
+                    max-width: 150%;
+                    width: 150%;
+                    padding-right: 300px;
+                    padding-top: 50px;
+                }
+        }
+	
+		div {
+
+            .footer_socials{
+                display: none;
+
+                @include xl {
+                    display: block;
+                }
+            }
+
+			.footer_title{
+				color: $color__principal_green;
+				font-size: 20px;
+				font-weight: 800;
+				line-height: 25px;
+				// font-family: 'Gothic A1';
+
+			}
+
+			p span,a {
+				// font-family: 'Ebrima';
+				font-weight: 400;
+				font-size: 18px;
+				line-height: 24px;
+                color: $color__almost_black;
+			}
+
+			ul{
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				gap: 16px;
+				list-style: none;
+				width: 100%;
+				height: 80px;
+				margin: 0;
+				padding: 0;
+				
+                @include xl{
+                    gap: 64px;
+                }
+			}
+		}
+	
+        .qr_medilink{
+            display: none;
+
+            @include xl {
+                display: block;
+            }
+        }
+    }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
